@@ -1,0 +1,19 @@
+.header {
+  height: 2em;
+  border: 1px;
+  border-color: black;
+  background-color: black;
+  font-size: 2em;
+  position: relative;
+  .nav {
+    margin-left: 1em;
+    margin-bottom: 10px;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
