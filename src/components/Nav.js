@@ -1,7 +1,7 @@
 // import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
-  const activeStyle = { color: 'orange' };
+  // const activeStyle = { color: 'orange' };
   return '';
   // <nav className="nav">
   //   <NavLink to="/" exact activeStyle={activeStyle}>
