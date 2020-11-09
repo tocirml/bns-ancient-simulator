@@ -1,4 +1,4 @@
-const GearItem = ({ itemType, itemLevel, upgradeItem }) => {
+const GearItem = ({ itemType, itemLevel, upgradeItem, currentClass = '' }) => {
   return (
     <div
       className="gear-box-item"
@@ -7,7 +7,11 @@ const GearItem = ({ itemType, itemLevel, upgradeItem }) => {
       }}
     >
       <img
-        src={`/bnsItems/${itemType}.png`}
+        src={
+          itemType === 'weapon'
+            ? `/bnsWeapons/${currentClass}.png`
+            : `/bnsItems/${itemType}.png`
+        }
         alt={`${itemType} icon`}
         className="gear-box-item-img"
       />

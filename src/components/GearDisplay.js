@@ -1,6 +1,6 @@
 import GearItem from './GearItem';
 
-const GearDisplay = ({ upgradeItem, currentLevels }) => {
+const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
   return (
     <div className="gear-box">
       <div className="gear-box-weapon">
@@ -8,6 +8,7 @@ const GearDisplay = ({ upgradeItem, currentLevels }) => {
           itemType={'weapon'}
           itemLevel={currentLevels[0].level}
           upgradeItem={upgradeItem}
+          currentClass={currentClass}
         />
       </div>
       <div className="gear-box-accesories">

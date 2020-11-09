@@ -1,4 +1,37 @@
 .bns {
+  &__classes {
+    background-color: rgba(0, 0, 0, 0.7);
+    max-width: 1200px;
+    padding: 5px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    &-item {
+      align-self: center;
+      margin: 10px;
+      width: 60px;
+      overflow: hidden;
+      filter: drop-shadow(1px 1px 2px #fff);
+      img {
+        transition: width 0.2s;
+        height: 90%;
+        width: 90%;
+      }
+      img:hover {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .current-class {
+      width: 80px;
+      filter: drop-shadow(1px 1px 10px #fff);
+      pointer-events: none;
+    }
+  }
+
   &__container {
     font-family: Lato-Regular;
     color: #fff;
@@ -11,6 +44,7 @@
       margin: 10px 20px;
     }
   }
+
   &__materials-display {
     width: 235px;
     align-self: center;
@@ -19,11 +53,13 @@
       display: block;
     }
   }
+
   @media only screen and (max-width: 600px) {
     &__materials-display {
       order: 1;
     }
   }
+
   &__main-display {
     display: flex;
     flex-wrap: wrap;

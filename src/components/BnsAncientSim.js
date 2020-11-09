@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MainDisplay from './MainDisplay';
 import MaterialDisplay from './MaterialDisplay';
+import BnsClasses from './BnsClasses';
 import naSuccessRates from './naSuccessRates';
 import upgradeableItems from './upgradeableItems';
 import '../styles/BnsAncientSim.scss';
@@ -64,13 +65,21 @@ const BnsAncientSim = () => {
     <div className="bns__container">
       <h1>Blade & Soul Ancient System Simulator</h1>
       <p>Test your luck and wallet!</p>
+      <BnsClasses
+        currentClass={currentClass}
+        setCurrentClass={setCurrentClass}
+      />
       <div className="bns__container_displays">
         <MaterialDisplay
           gold={spentGold}
           stones={spentFusionStones}
           trys={attemps}
         />
-        <MainDisplay upgradeItem={upgradeItem} currentLevels={currentLevels} />
+        <MainDisplay
+          upgradeItem={upgradeItem}
+          currentLevels={currentLevels}
+          currentClass={currentClass}
+        />
       </div>
       <button
         onClick={() => {
