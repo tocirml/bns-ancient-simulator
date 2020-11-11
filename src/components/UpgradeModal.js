@@ -10,19 +10,22 @@ const UpgradeModal = ({
   currentClass,
 }) => {
   let weaponLevel = 0;
-  let successChance = 100;
+  let upgradeInfo;
   console.log(itemType);
   if (open === false) return null;
   weaponLevel = currentLevels.find((item) => item.type === itemType).level;
-  successChance = naSuccessRates[`level_${weaponLevel}`].rate;
+  upgradeInfo = naSuccessRates[`level_${weaponLevel}`];
   return ReactDom.createPortal(
     <>
-      <div className="bns__overlay"></div>
+      <div className="bns__overlay" onClick={() => onClose()}></div>
       <div className="bns__upgradeModal glass">
         <div className="bns__upgradeModal-header">
           {`Equipment upgrade`}
-          <button className="bns__upgradeModal-close" onClick={() => onClose()}>
-            X
+          <button
+            className="bns__upgradeModal-close bttn-close"
+            onClick={() => onClose()}
+          >
+            x
           </button>
         </div>
         <div className="bns__upgradeModal-content">
@@ -56,10 +59,14 @@ const UpgradeModal = ({
             </div>
           </div>
           <div className="bns__upgradeModal-content-info">
-            {`Success chance: ${successChance}%`}
+            <div className="bns__upgradeModal-content-info-gold">{`Fusion stone cost: ${
+              weaponLevel === 0 ? '50' : '5'
+            }`}</div>
+            <div className="bns__upgradeModal-content-info-gold">{`Gold cost: ${upgradeInfo.gold}`}</div>
+            <div className="bns__upgradeModal-content-info-rate">{`Success chance: ${upgradeInfo.rate}%`}</div>
           </div>
           <button
-            className="bns__upgradeModal-upgrade"
+            className="bns__upgradeModal-upgrade btn111"
             onClick={() => {
               upgradeItemHandler(itemType);
             }}

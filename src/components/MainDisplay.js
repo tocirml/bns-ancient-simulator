@@ -6,7 +6,7 @@ import GearDisplay from './GearDisplay';
 const MainDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
   return (
     <div className="bns__main-display">
-      <ClassImage />
+      {/* <ClassImage /> */}
       <GearDisplay
         upgradeItem={upgradeItem}
         currentLevels={currentLevels}
