@@ -1,9 +1,16 @@
-const GearItem = ({ itemType, itemLevel, upgradeItem, currentClass = '' }) => {
+const GearItem = ({
+  itemType,
+  itemLevel,
+  changeModalItem,
+  currentClass = '',
+  openModal,
+}) => {
   return (
     <div
       className="gear-box-item"
       onClick={() => {
-        upgradeItem(itemType);
+        changeModalItem(itemType);
+        openModal(true);
       }}
     >
       <img

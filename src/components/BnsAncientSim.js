@@ -64,7 +64,7 @@ const BnsAncientSim = () => {
   return (
     <div className="bns__container">
       <h1>Blade & Soul Ancient System Simulator</h1>
-      <p>Test your luck and wallet!</p>
+      <p>Test your determination and wallet!</p>
       <BnsClasses
         currentClass={currentClass}
         setCurrentClass={setCurrentClass}
