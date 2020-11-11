@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassImage from './ClassImage';
+// import ClassImage from './ClassImage';
 import GearDisplay from './GearDisplay';
 // import naSuccessRates from './naSuccessRates';
 
