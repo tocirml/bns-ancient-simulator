@@ -4,14 +4,16 @@ import naSuccessRates from './naSuccessRates';
 const UpgradeModal = ({
   open,
   onClose,
-  modalItem,
+  itemType,
   upgradeItemHandler,
   currentLevels,
+  currentClass,
 }) => {
   let weaponLevel = 0;
   let successChance = 100;
+  console.log(itemType);
   if (open === false) return null;
-  weaponLevel = currentLevels.find((item) => item.type === modalItem).level;
+  weaponLevel = currentLevels.find((item) => item.type === itemType).level;
   successChance = naSuccessRates[`level_${weaponLevel}`].rate;
   return ReactDom.createPortal(
     <>
@@ -27,8 +29,12 @@ const UpgradeModal = ({
           <div className="bns__upgradeModal-content-items">
             <div className="bns__upgradeModal-content-item">
               <img
-                src={`/bnsItems/${modalItem}.png`}
-                alt={`${modalItem} icon`}
+                src={
+                  itemType === 'weapon'
+                    ? `/bnsWeapons/${currentClass}.png`
+                    : `/bnsItems/${itemType}.png`
+                }
+                alt={`${itemType} icon`}
                 className="bns__upgradeModal-content-item-img"
               />
               <span className="bns__upgradeModal-content-item-label">{`+${weaponLevel}`}</span>
@@ -36,8 +42,12 @@ const UpgradeModal = ({
             <div className="bns__upgradeModal-content-item arrow-right"></div>
             <div className="bns__upgradeModal-content-item">
               <img
-                src={`/bnsItems/${modalItem}.png`}
-                alt={`${modalItem} icon`}
+                src={
+                  itemType === 'weapon'
+                    ? `/bnsWeapons/${currentClass}.png`
+                    : `/bnsItems/${itemType}.png`
+                }
+                alt={`${itemType} icon`}
                 className="bns__upgradeModal-content-item-img"
               />
               <span className="bns__upgradeModal-content-item-label">{`+${
@@ -51,7 +61,7 @@ const UpgradeModal = ({
           <button
             className="bns__upgradeModal-upgrade"
             onClick={() => {
-              upgradeItemHandler(modalItem);
+              upgradeItemHandler(itemType);
             }}
           >
             Upgrade

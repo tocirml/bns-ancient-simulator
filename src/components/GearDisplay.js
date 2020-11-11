@@ -4,7 +4,7 @@ import UpgradeModal from './UpgradeModal';
 
 const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [modalItem, setModalItem] = useState('');
+  const [itemType, setItemType] = useState('');
   return (
     <div className="gear-box">
       <div className="gear-box-weapon">
@@ -12,7 +12,7 @@ const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
           itemType={'weapon'}
           itemLevel={currentLevels[0].level}
           currentClass={currentClass}
-          changeModalItem={setModalItem}
+          changeitemType={setItemType}
           openModal={setIsOpen}
         />
       </div>
@@ -26,7 +26,7 @@ const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
               key={item.id}
               itemType={item.type}
               itemLevel={item.level}
-              changeModalItem={setModalItem}
+              changeitemType={setItemType}
               openModal={setIsOpen}
             />
           );
@@ -35,9 +35,10 @@ const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
       <UpgradeModal
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        modalItem={modalItem}
+        itemType={itemType}
         upgradeItemHandler={upgradeItem}
         currentLevels={currentLevels}
+        currentClass={currentClass}
       />
     </div>
   );

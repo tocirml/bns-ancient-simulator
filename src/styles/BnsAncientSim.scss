@@ -199,6 +199,7 @@
         }
       }
       &-info {
+        min-width: 170px;
         position: absolute;
         left: 50%;
         bottom: 30px;
@@ -233,6 +234,18 @@
       min-width: 300px;
     }
   }
+  @media only screen and (max-width: 650px) {
+    &__upgradeModal {
+      &-content-item {
+        width: 60px;
+        &-label {
+          margin-left: 00px;
+          bottom: -25px;
+          left: 20px;
+        }
+      }
+    }
+  }
 }
 
 .glass {
@@ -258,4 +271,11 @@
   border-width: 0 21px 21px 0;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 650px) {
+  .arrow-right {
+    width: 15px;
+    height: 15px;
+  }
 }

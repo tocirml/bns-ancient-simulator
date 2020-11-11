@@ -1,7 +1,7 @@
 const GearItem = ({
   itemType,
   itemLevel,
-  changeModalItem,
+  changeitemType,
   currentClass = '',
   openModal,
 }) => {
@@ -9,7 +9,7 @@ const GearItem = ({
     <div
       className="gear-box-item"
       onClick={() => {
-        changeModalItem(itemType);
+        changeitemType(itemType);
         openModal(true);
       }}
     >
