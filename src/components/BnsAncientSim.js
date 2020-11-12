@@ -27,7 +27,7 @@ const BnsAncientSim = () => {
 
   const changeSuccessState = (state) => {
     setSuccessState(state);
-    setTimeout(() => setSuccessState('none'), 1000);
+    setTimeout(() => setSuccessState('none'), 3000);
   };
 
   const succeded = (level) => {
