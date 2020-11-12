@@ -12,3 +12,12 @@
   right: 10px;
   bottom: 10px;
 }
+
+@media only screen and (max-width: 650px) {
+  .footer {
+    height: 10rem;
+  }
+  .paypal-button {
+    position: static;
+  }
+}

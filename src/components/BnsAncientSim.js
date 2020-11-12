@@ -12,6 +12,7 @@ const BnsAncientSim = () => {
   const [attemps, setAttemps] = useState(0);
   const [currentLevels, setCurrentLevels] = useState([...upgradeableItems]);
   const [currentClass, setCurrentClass] = useState('blademaster');
+  const [successState, setSuccessState] = useState('none');
 
   const reset = () => {
     setCurrentLevels(
@@ -24,12 +25,19 @@ const BnsAncientSim = () => {
     setSpentFusionStones(0);
   };
 
+  const changeSuccessState = (state) => {
+    setSuccessState(state);
+    setTimeout(() => setSuccessState('none'), 1000);
+  };
+
   const succeded = (level) => {
     let successChance = naSuccessRates[`level_${level}`].rate,
       roll = Math.random() * 100;
     if (roll < successChance) {
+      changeSuccessState('success');
       return 'success';
     }
+    changeSuccessState('fail');
     return 'fail';
   };
 
@@ -79,6 +87,7 @@ const BnsAncientSim = () => {
           upgradeItem={upgradeItem}
           currentLevels={currentLevels}
           currentClass={currentClass}
+          successState={successState}
         />
       </div>
       <button

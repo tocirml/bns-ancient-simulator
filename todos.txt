@@ -1,0 +1,15 @@
+Display success/fail gif/message
+Change region
+Add logo, menu?
+Cookies/Local storage
+Update Transformations stone costs
+
+Google Analytics
+Add redux
+Log in
+
+
+
+DONE:
+Enhance Material display 
+Better font

@@ -35,3 +35,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .main {
+    padding-bottom: 16rem; /* footer height */
+  }
+}

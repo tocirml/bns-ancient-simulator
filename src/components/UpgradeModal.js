@@ -8,6 +8,7 @@ const UpgradeModal = ({
   upgradeItemHandler,
   currentLevels,
   currentClass,
+  successState,
 }) => {
   let weaponLevel = 0;
   let upgradeInfo;
@@ -58,6 +59,17 @@ const UpgradeModal = ({
               }`}</span>
             </div>
           </div>
+          {successState === 'none' ? (
+            ''
+          ) : (
+            <div className="bns__upgradeModal-content-message hide-container">
+              <img
+                className="hideMe"
+                src={`pepe${successState === 'success' ? 'ga' : 'shock'}.png`}
+                alt="pepe"
+              />
+            </div>
+          )}
           <div className="bns__upgradeModal-content-info">
             <div className="bns__upgradeModal-content-info-gold">{`Fusion stone cost: ${
               weaponLevel === 0 ? '50' : '5'

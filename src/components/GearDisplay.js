@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import GearItem from './GearItem';
 import UpgradeModal from './UpgradeModal';
 
-const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
+const GearDisplay = ({
+  upgradeItem,
+  currentLevels,
+  currentClass,
+  successState,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [itemType, setItemType] = useState('');
   return (
@@ -39,6 +44,7 @@ const GearDisplay = ({ upgradeItem, currentLevels, currentClass }) => {
         upgradeItemHandler={upgradeItem}
         currentLevels={currentLevels}
         currentClass={currentClass}
+        successState={successState}
       />
     </div>
   );
