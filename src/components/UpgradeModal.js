@@ -43,21 +43,29 @@ const UpgradeModal = ({
               />
               <span className="bns__upgradeModal-content-item-label">{`+${weaponLevel}`}</span>
             </div>
-            <div className="bns__upgradeModal-content-item arrow-right"></div>
-            <div className="bns__upgradeModal-content-item">
-              <img
-                src={
-                  itemType === 'weapon'
-                    ? `/bnsWeapons/${currentClass}.png`
-                    : `/bnsItems/${itemType}.png`
-                }
-                alt={`${itemType} icon`}
-                className="bns__upgradeModal-content-item-img"
-              />
-              <span className="bns__upgradeModal-content-item-label">{`+${
-                weaponLevel + 1
-              }`}</span>
-            </div>
+            {weaponLevel === 20 ? (
+              ''
+            ) : (
+              <div className="bns__upgradeModal-content-item arrow-right"></div>
+            )}
+            {weaponLevel === 20 ? (
+              ''
+            ) : (
+              <div className="bns__upgradeModal-content-item">
+                <img
+                  src={
+                    itemType === 'weapon'
+                      ? `/bnsWeapons/${currentClass}.png`
+                      : `/bnsItems/${itemType}.png`
+                  }
+                  alt={`${itemType} icon`}
+                  className="bns__upgradeModal-content-item-img"
+                />
+                <span className="bns__upgradeModal-content-item-label">{`+${
+                  weaponLevel + 1
+                }`}</span>
+              </div>
+            )}
           </div>
           {successState === 'none' ? (
             ''
@@ -70,17 +78,24 @@ const UpgradeModal = ({
               />
             </div>
           )}
-          <div className="bns__upgradeModal-content-info">
-            <div className="bns__upgradeModal-content-info-gold">{`Fusion stone cost: ${
-              weaponLevel === 0 ? '50' : '5'
-            }`}</div>
-            <div className="bns__upgradeModal-content-info-gold">{`Gold cost: ${upgradeInfo.gold}`}</div>
-            <div className="bns__upgradeModal-content-info-rate">{`Success chance: ${upgradeInfo.rate}%`}</div>
-          </div>
+          {weaponLevel === 20 ? (
+            ''
+          ) : (
+            <div className="bns__upgradeModal-content-info">
+              <div className="bns__upgradeModal-content-info-gold">{`Fusion stone cost: ${
+                weaponLevel === 0 ? '50' : '5'
+              }`}</div>
+              <div className="bns__upgradeModal-content-info-gold">{`Gold cost: ${upgradeInfo.gold}`}</div>
+              <div className="bns__upgradeModal-content-info-rate">{`Success chance: ${upgradeInfo.rate}%`}</div>
+            </div>
+          )}
+
           <button
-            className="bns__upgradeModal-upgrade btn111"
+            className={`bns__upgradeModal-upgrade btn111 ${
+              weaponLevel === 20 ? 'btn222' : ''
+            }`}
             onClick={() => {
-              upgradeItemHandler(itemType);
+              if (weaponLevel < 20) upgradeItemHandler(itemType);
             }}
           >
             Upgrade
