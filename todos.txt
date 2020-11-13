@@ -1,8 +1,7 @@
-Display success/fail gif/message
 Change region
-Add logo, menu?
 Cookies/Local storage
 Update Transformations stone costs
+Tooltip
 
 Google Analytics
 Add redux
@@ -11,5 +10,7 @@ Log in
 
 
 DONE:
+Add logo, menu?
 Enhance Material display 
+Display success/fail gif/message
 Better font

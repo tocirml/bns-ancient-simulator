@@ -75,9 +75,18 @@
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1200px) {
+    &__classes {
+      max-width: 700px;
+    }
     &__materials-display {
       order: 1;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    &__classes {
+      max-width: 275px;
     }
   }
 
@@ -369,8 +378,8 @@
   position: relative;
 }
 .hideMe {
-  -webkit-animation: cssAnimation 3s forwards;
-  animation: cssAnimation 3s forwards;
+  -webkit-animation: cssAnimation 1s forwards;
+  animation: cssAnimation 1s forwards;
 }
 @keyframes cssAnimation {
   0% {
@@ -396,4 +405,14 @@
   100% {
     opacity: 0;
   }
+}
+
+.reset {
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
 }

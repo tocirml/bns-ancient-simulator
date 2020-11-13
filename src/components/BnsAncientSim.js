@@ -27,7 +27,7 @@ const BnsAncientSim = () => {
 
   const changeSuccessState = (state) => {
     setSuccessState(state);
-    setTimeout(() => setSuccessState('none'), 3000);
+    setTimeout(() => setSuccessState('none'), 1000);
   };
 
   const succeded = (level) => {
@@ -91,6 +91,7 @@ const BnsAncientSim = () => {
         />
       </div>
       <button
+        className="reset"
         onClick={() => {
           reset();
         }}
