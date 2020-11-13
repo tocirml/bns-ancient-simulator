@@ -397,6 +397,9 @@
 }
 @-webkit-keyframes cssAnimation {
   0% {
+    opacity: 0;
+  }
+  15% {
     opacity: 1;
   }
   75% {
