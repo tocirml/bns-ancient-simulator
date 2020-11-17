@@ -17,7 +17,7 @@ const BnsAncientSim = () => {
   const reset = () => {
     setCurrentLevels(
       currentLevels.map((item) => {
-        return { ...item, level: 0 };
+        return { ...item, level: 0, maxLevelObtained: 0 };
       })
     );
     setAttemps(0);
@@ -60,7 +60,14 @@ const BnsAncientSim = () => {
     setCurrentLevels(
       currentLevels.map((item) => {
         if (item.type === itemType) {
-          return { ...item, level: gear.level };
+          return {
+            ...item,
+            level: gear.level,
+            maxLevelObtained:
+              gear.level > gear.maxLevelObtained
+                ? gear.level
+                : gear.maxLevelObtained,
+          };
         }
         return item;
       })

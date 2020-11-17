@@ -47,7 +47,9 @@ const UpgradeModal = ({
             {gearItem.level === 20 ? (
               ''
             ) : (
-              <div className="bns__upgradeModal-content-item arrow-right"></div>
+              <>
+                <div className="bns__upgradeModal-content-item arrow-right"></div>
+              </>
             )}
             {gearItem.level === 20 ? (
               ''
@@ -68,6 +70,7 @@ const UpgradeModal = ({
               </div>
             )}
           </div>
+          <div className="bns__upgradeModal-content-item-max">{`Max obtained: lv${gearItem.maxLevelObtained}`}</div>
           {successState === 'none' ? (
             ''
           ) : (
