@@ -10,12 +10,13 @@ const UpgradeModal = ({
   currentClass,
   successState,
 }) => {
-  let weaponLevel = 0;
-  let upgradeInfo;
-  console.log(itemType);
+  let gearItem, upgradeInfo;
+
   if (open === false) return null;
-  weaponLevel = currentLevels.find((item) => item.type === itemType).level;
-  upgradeInfo = naSuccessRates[`level_${weaponLevel}`];
+
+  gearItem = currentLevels.find((item) => item.type === itemType);
+  upgradeInfo = naSuccessRates[`level_${gearItem.level}`];
+
   return ReactDom.createPortal(
     <>
       <div className="bns__overlay" onClick={() => onClose()}></div>
@@ -41,14 +42,14 @@ const UpgradeModal = ({
                 alt={`${itemType} icon`}
                 className="bns__upgradeModal-content-item-img"
               />
-              <span className="bns__upgradeModal-content-item-label">{`+${weaponLevel}`}</span>
+              <span className="bns__upgradeModal-content-item-label">{`+${gearItem.level}`}</span>
             </div>
-            {weaponLevel === 20 ? (
+            {gearItem.level === 20 ? (
               ''
             ) : (
               <div className="bns__upgradeModal-content-item arrow-right"></div>
             )}
-            {weaponLevel === 20 ? (
+            {gearItem.level === 20 ? (
               ''
             ) : (
               <div className="bns__upgradeModal-content-item">
@@ -62,7 +63,7 @@ const UpgradeModal = ({
                   className="bns__upgradeModal-content-item-img"
                 />
                 <span className="bns__upgradeModal-content-item-label">{`+${
-                  weaponLevel + 1
+                  gearItem.level + 1
                 }`}</span>
               </div>
             )}
@@ -78,12 +79,12 @@ const UpgradeModal = ({
               />
             </div>
           )}
-          {weaponLevel === 20 ? (
+          {gearItem.level === 20 ? (
             ''
           ) : (
             <div className="bns__upgradeModal-content-info">
               <div className="bns__upgradeModal-content-info-gold">{`Fusion stone cost: ${
-                weaponLevel === 0 ? '50' : '5'
+                gearItem.level === 0 ? '50' : gearItem.fusionCost
               }`}</div>
               <div className="bns__upgradeModal-content-info-gold">{`Gold cost: ${upgradeInfo.gold}`}</div>
               <div className="bns__upgradeModal-content-info-rate">{`Success chance: ${upgradeInfo.rate}%`}</div>
@@ -92,10 +93,10 @@ const UpgradeModal = ({
 
           <button
             className={`bns__upgradeModal-upgrade btn111 ${
-              weaponLevel === 20 ? 'btn222' : ''
+              gearItem.level === 20 ? 'btn222' : ''
             }`}
             onClick={() => {
-              if (weaponLevel < 20) upgradeItemHandler(itemType);
+              if (gearItem.level < 20) upgradeItemHandler(itemType);
             }}
           >
             Upgrade

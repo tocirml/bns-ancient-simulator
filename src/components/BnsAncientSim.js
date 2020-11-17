@@ -66,7 +66,10 @@ const BnsAncientSim = () => {
       })
     );
 
-    updateSpentMaterials(levelInfo.gold, gear.level === 1 ? 50 : 5);
+    updateSpentMaterials(
+      levelInfo.gold,
+      gear.level === 1 ? 50 : gear.fusionCost
+    );
   };
 
   return (
