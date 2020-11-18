@@ -1,8 +1,8 @@
 import ReactDom from 'react-dom';
 import naSuccessRates from '../data/naSuccessRates';
 import goldIcon from '../assets/img/gold-icon.png';
-import fusionStoneIcon from '../assets/img/fusion-stone-icon.png';
-import transformationStoneIcon from '../assets/img/transformation-stone-icon.png';
+// import fusionStoneIcon from '../assets/img/fusion-stone-icon.png';
+// import transformationStoneIcon from '../assets/img/transformation-stone-icon.png';
 
 const UpgradeModal = ({
   open,
