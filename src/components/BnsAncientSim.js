@@ -62,7 +62,7 @@ const BnsAncientSim = () => {
       levelInfo = naSuccessRates[`level_${gear.level}`];
 
     updateSpentMaterials(
-      levelInfo.gold,
+      gear.level === 0 ? levelInfo.gold + 50 : levelInfo.gold,
       gear.level === 0 ? 50 : gear.fusionCost,
       gear.level === 0 ? 5 : gear.tStoneCost,
       gear.level === 0 ? 5 : 0
