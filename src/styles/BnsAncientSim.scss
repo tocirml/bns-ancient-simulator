@@ -74,7 +74,7 @@
   &__materials-display {
     display: grid;
     align-self: center;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 2fr;
     row-gap: 5px;
     margin-right: 25px;
     min-width: 250px;
@@ -91,7 +91,7 @@
     &_label {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
       text-align: left;
       margin-left: 10px;
     }

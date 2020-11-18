@@ -61,6 +61,13 @@ const BnsAncientSim = () => {
     let gear = currentLevels.find((item) => item.type === itemType),
       levelInfo = naSuccessRates[`level_${gear.level}`];
 
+    updateSpentMaterials(
+      levelInfo.gold,
+      gear.level === 0 ? 50 : gear.fusionCost,
+      gear.level === 0 ? 0 : gear.tStoneCost,
+      gear.level === 0 ? 10 : 0
+    );
+
     if (succeded(gear.level) === 'success') {
       gear.level += 1;
     } else {
@@ -81,13 +88,6 @@ const BnsAncientSim = () => {
         }
         return item;
       })
-    );
-
-    updateSpentMaterials(
-      levelInfo.gold,
-      gear.level === 1 ? 50 : gear.fusionCost,
-      gear.level === 1 ? 0 : gear.tStoneCost,
-      gear.level === 1 ? 10 : 0
     );
   };
 
