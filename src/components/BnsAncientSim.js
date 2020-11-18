@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import MainDisplay from './MainDisplay';
 import MaterialDisplay from './MaterialDisplay';
 import BnsClasses from './BnsClasses';
-import naSuccessRates from './naSuccessRates';
-import upgradeableItems from './upgradeableItems';
+import naSuccessRates from '../data/naSuccessRates';
+import upgradeableItems from '../data/upgradeableItems';
 import '../styles/BnsAncientSim.scss';
 
 const BnsAncientSim = () => {

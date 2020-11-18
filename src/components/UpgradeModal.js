@@ -1,5 +1,5 @@
 import ReactDom from 'react-dom';
-import naSuccessRates from './naSuccessRates';
+import naSuccessRates from '../data/naSuccessRates';
 
 const UpgradeModal = ({
   open,
@@ -102,7 +102,7 @@ const UpgradeModal = ({
               if (gearItem.level < 20) upgradeItemHandler(itemType);
             }}
           >
-            Upgrade
+            {`Upgrade`}
           </button>
         </div>
       </div>

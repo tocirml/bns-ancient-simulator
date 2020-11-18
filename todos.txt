@@ -1,7 +1,9 @@
 Change region
 Cookies/Local storage
-Update Transformations stone costs
+Update Transformations stone costs and apply disccount if premium 5%
 Tooltip
+Carousel scroll (kagura example)
+
 
 Google Analytics
 Add redux

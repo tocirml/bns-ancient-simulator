@@ -8,7 +8,7 @@ const MaterialDisplay = ({ gold, stones, trys }) => {
       <div className="bns__materials-display_result">{gold}</div>
       <div className="bns__materials-display_label fusion">FUSION STONES</div>
       <div className="bns__materials-display_result">{stones}</div>
-      <div className="bns__materials-display_label trys">TRYS</div>
+      <div className="bns__materials-display_label trys">TRIES</div>
       <div className="bns__materials-display_result">{trys}</div>
     </div>
   );
