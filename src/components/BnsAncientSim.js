@@ -64,8 +64,8 @@ const BnsAncientSim = () => {
     updateSpentMaterials(
       levelInfo.gold,
       gear.level === 0 ? 50 : gear.fusionCost,
-      gear.level === 0 ? 0 : gear.tStoneCost,
-      gear.level === 0 ? 10 : 0
+      gear.level === 0 ? 5 : gear.tStoneCost,
+      gear.level === 0 ? 5 : 0
     );
 
     if (succeded(gear.level) === 'success') {
