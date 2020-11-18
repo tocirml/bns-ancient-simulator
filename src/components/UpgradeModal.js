@@ -1,5 +1,8 @@
 import ReactDom from 'react-dom';
 import naSuccessRates from '../data/naSuccessRates';
+import goldIcon from '../assets/img/gold-icon.png';
+import fusionStoneIcon from '../assets/img/fusion-stone-icon.png';
+import transformationStoneIcon from '../assets/img/transformation-stone-icon.png';
 
 const UpgradeModal = ({
   open,
@@ -9,6 +12,7 @@ const UpgradeModal = ({
   currentLevels,
   currentClass,
   successState,
+  isPremium,
 }) => {
   let gearItem, upgradeInfo;
 
@@ -89,7 +93,12 @@ const UpgradeModal = ({
               <div className="bns__upgradeModal-content-info-gold">{`Fusion stone cost: ${
                 gearItem.level === 0 ? '50' : gearItem.fusionCost
               }`}</div>
-              <div className="bns__upgradeModal-content-info-gold">{`Gold cost: ${upgradeInfo.gold}`}</div>
+              <div className="bns__upgradeModal-content-info-gold">
+                {`Basic cost: ${
+                  isPremium ? upgradeInfo.gold * 0.95 : upgradeInfo.gold
+                }`}
+                <img src={goldIcon} alt="gold icon" className="gold-icon" />
+              </div>
               <div className="bns__upgradeModal-content-info-rate">{`Success chance: ${upgradeInfo.rate}%`}</div>
             </div>
           )}

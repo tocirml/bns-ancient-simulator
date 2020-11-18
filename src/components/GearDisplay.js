@@ -7,6 +7,7 @@ const GearDisplay = ({
   currentLevels,
   currentClass,
   successState,
+  isPremium,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [itemType, setItemType] = useState('');
@@ -45,6 +46,7 @@ const GearDisplay = ({
         currentLevels={currentLevels}
         currentClass={currentClass}
         successState={successState}
+        isPremium={isPremium}
       />
     </div>
   );

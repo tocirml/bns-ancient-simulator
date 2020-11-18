@@ -8,6 +8,7 @@ const MainDisplay = ({
   currentLevels,
   currentClass,
   successState,
+  isPremium,
 }) => {
   return (
     <div className="bns__main-display">
@@ -17,6 +18,7 @@ const MainDisplay = ({
         currentLevels={currentLevels}
         currentClass={currentClass}
         successState={successState}
+        isPremium={isPremium}
       />
     </div>
   );

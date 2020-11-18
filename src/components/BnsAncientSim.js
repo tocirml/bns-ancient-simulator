@@ -4,15 +4,20 @@ import MaterialDisplay from './MaterialDisplay';
 import BnsClasses from './BnsClasses';
 import naSuccessRates from '../data/naSuccessRates';
 import upgradeableItems from '../data/upgradeableItems';
+import Switch from '@material-ui/core/Switch';
+import premiumIcon from '../assets/img/premium-icon.png';
 import '../styles/BnsAncientSim.scss';
 
 const BnsAncientSim = () => {
   const [spentGold, setSpentGold] = useState(0);
+  const [spentTStones, setSpentTStones] = useState(0);
+  const [spentPTStones, setSpentPTStones] = useState(0);
   const [spentFusionStones, setSpentFusionStones] = useState(0);
   const [attemps, setAttemps] = useState(0);
   const [currentLevels, setCurrentLevels] = useState([...upgradeableItems]);
   const [currentClass, setCurrentClass] = useState('blademaster');
   const [successState, setSuccessState] = useState('none');
+  const [isPremium, setIsPremium] = useState(false);
 
   const reset = () => {
     setCurrentLevels(
@@ -22,6 +27,8 @@ const BnsAncientSim = () => {
     );
     setAttemps(0);
     setSpentGold(0);
+    setSpentTStones(0);
+    setSpentPTStones(0);
     setSpentFusionStones(0);
   };
 
@@ -41,9 +48,12 @@ const BnsAncientSim = () => {
     return 'fail';
   };
 
-  const updateSpentMaterials = (gold, fusionStones) => {
+  const updateSpentMaterials = (gold, fusionStones, tStones, pTStones) => {
+    if (isPremium) gold *= 0.95;
     setAttemps(attemps + 1);
     setSpentGold(spentGold + gold);
+    setSpentTStones(spentTStones + tStones);
+    setSpentPTStones(spentPTStones + pTStones);
     setSpentFusionStones(spentFusionStones + fusionStones);
   };
 
@@ -75,7 +85,9 @@ const BnsAncientSim = () => {
 
     updateSpentMaterials(
       levelInfo.gold,
-      gear.level === 1 ? 50 : gear.fusionCost
+      gear.level === 1 ? 50 : gear.fusionCost,
+      gear.level === 1 ? 0 : gear.tStoneCost,
+      gear.level === 1 ? 10 : 0
     );
   };
 
@@ -83,6 +95,19 @@ const BnsAncientSim = () => {
     <div className="bns__container">
       <h1>Blade & Soul Ancient System Simulator</h1>
       <p>Test your determination and wallet!</p>
+      <div className="bns__premium">
+        <label>
+          {'Premium '}
+          <img className="bns__icon" alt="premium icon" src={premiumIcon} />
+        </label>
+        <Switch
+          checked={isPremium}
+          color="primary"
+          onChange={() => {
+            setIsPremium(!isPremium);
+          }}
+        />
+      </div>
       <BnsClasses
         currentClass={currentClass}
         setCurrentClass={setCurrentClass}
@@ -91,6 +116,8 @@ const BnsAncientSim = () => {
         <MaterialDisplay
           gold={spentGold}
           stones={spentFusionStones}
+          tstones={spentTStones}
+          ptstones={spentPTStones}
           trys={attemps}
         />
         <MainDisplay
@@ -98,6 +125,7 @@ const BnsAncientSim = () => {
           currentLevels={currentLevels}
           currentClass={currentClass}
           successState={successState}
+          isPremium={isPremium}
         />
       </div>
       <button
