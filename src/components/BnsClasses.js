@@ -9,6 +9,7 @@ const BnsClasses = ({ currentClass, setCurrentClass }) => {
       {bnsClassList.map((item) => {
         return (
           <div
+            key={Math.random() * 10000}
             className={`bns__classes-item ${
               item.name === currentClass ? 'current-class' : ''
             }`}

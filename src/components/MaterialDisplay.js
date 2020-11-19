@@ -5,14 +5,23 @@ import fusionStoneIcon from '../assets/img/fusion-stone-icon.png';
 import transformationStoneIcon from '../assets/img/transformation-stone-icon.png';
 import pTransformationStoneIcon from '../assets/img/premium-transformation-stone-icon.png';
 
-const MaterialDisplay = ({ gold, stones, trys, tstones, ptstones }) => {
+const MaterialDisplay = ({
+  wastedMaterials,
+  gold,
+  stones,
+  trys,
+  tstones,
+  ptstones,
+}) => {
   return (
     <div className="bns__materials-display">
       <h2 className="bns__materials-display_h2">Materials wasted</h2>
       <div className="bns__materials-display_label gold">
         <img className="bns__icon-small" alt="premium icon" src={goldIcon} />
       </div>
-      <div className="bns__materials-display_result">{gold}</div>
+      <div className="bns__materials-display_result">
+        {wastedMaterials.gold}
+      </div>
       <div className="bns__materials-display_label fusion">
         <img
           className="bns__icon-small"
@@ -20,7 +29,9 @@ const MaterialDisplay = ({ gold, stones, trys, tstones, ptstones }) => {
           src={fusionStoneIcon}
         />
       </div>
-      <div className="bns__materials-display_result">{stones}</div>
+      <div className="bns__materials-display_result">
+        {wastedMaterials.fusionStones}
+      </div>
       <div className="bns__materials-display_label gold">
         <img
           className="bns__icon-small"
@@ -28,7 +39,9 @@ const MaterialDisplay = ({ gold, stones, trys, tstones, ptstones }) => {
           src={transformationStoneIcon}
         />
       </div>
-      <div className="bns__materials-display_result">{tstones}</div>
+      <div className="bns__materials-display_result">
+        {wastedMaterials.tStones}
+      </div>
       <div className="bns__materials-display_label gold">
         <img
           className="bns__icon-small"
@@ -36,11 +49,15 @@ const MaterialDisplay = ({ gold, stones, trys, tstones, ptstones }) => {
           src={pTransformationStoneIcon}
         />
       </div>
-      <div className="bns__materials-display_result">{ptstones}</div>
+      <div className="bns__materials-display_result">
+        {wastedMaterials.ptStones}
+      </div>
       <div className="bns__materials-display_label trys">
         <img className="bns__icon-small" alt="premium icon" src={clickIcon} />
       </div>
-      <div className="bns__materials-display_result">{trys}</div>
+      <div className="bns__materials-display_result">
+        {wastedMaterials.tries}
+      </div>
     </div>
   );
 };

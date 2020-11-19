@@ -1,23 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainDisplay from './MainDisplay';
 import MaterialDisplay from './MaterialDisplay';
 import BnsClasses from './BnsClasses';
 import naSuccessRates from '../data/naSuccessRates';
 import upgradeableItems from '../data/upgradeableItems';
+import materialsData from '../data/wastedMaterials';
 import Switch from '@material-ui/core/Switch';
 import premiumIcon from '../assets/img/premium-icon.png';
 import '../styles/BnsAncientSim.scss';
 
 const BnsAncientSim = () => {
-  const [spentGold, setSpentGold] = useState(0);
-  const [spentTStones, setSpentTStones] = useState(0);
-  const [spentPTStones, setSpentPTStones] = useState(0);
-  const [spentFusionStones, setSpentFusionStones] = useState(0);
-  const [attemps, setAttemps] = useState(0);
-  const [currentLevels, setCurrentLevels] = useState([...upgradeableItems]);
-  const [currentClass, setCurrentClass] = useState('blademaster');
+  const [wastedMaterials, setWastedMaterials] = useState(
+    localStorage.getItem('materials')
+      ? JSON.parse(localStorage.getItem('materials'))
+      : materialsData
+  );
+
+  const [currentLevels, setCurrentLevels] = useState(
+    localStorage.getItem('levels')
+      ? JSON.parse(localStorage.getItem('levels'))
+      : [...upgradeableItems]
+  );
+
+  const [currentClass, setCurrentClass] = useState(
+    localStorage.getItem('bnsClass')
+      ? localStorage.getItem('bnsClass')
+      : 'blademaster'
+  );
+
+  const [isPremium, setIsPremium] = useState(
+    localStorage.getItem('isPremium') != null
+      ? JSON.parse(localStorage.getItem('isPremium'))
+      : false
+  );
+
   const [successState, setSuccessState] = useState('none');
-  const [isPremium, setIsPremium] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('materials', JSON.stringify(wastedMaterials));
+  }, [wastedMaterials]);
+
+  useEffect(() => {
+    localStorage.setItem('levels', JSON.stringify(currentLevels));
+  }, [currentLevels]);
+
+  useEffect(() => {
+    localStorage.setItem('bnsClass', currentClass);
+  }, [currentClass]);
+
+  useEffect(() => {
+    localStorage.setItem('isPremium', isPremium);
+  }, [isPremium]);
 
   const reset = () => {
     setCurrentLevels(
@@ -25,11 +58,8 @@ const BnsAncientSim = () => {
         return { ...item, level: 0, maxLevelObtained: 0 };
       })
     );
-    setAttemps(0);
-    setSpentGold(0);
-    setSpentTStones(0);
-    setSpentPTStones(0);
-    setSpentFusionStones(0);
+
+    setWastedMaterials(materialsData);
   };
 
   const changeSuccessState = (state) => {
@@ -48,13 +78,20 @@ const BnsAncientSim = () => {
     return 'fail';
   };
 
-  const updateSpentMaterials = (gold, fusionStones, tStones, pTStones) => {
+  const updateSpentMaterials = (
+    gold = 0,
+    fusionStones = 0,
+    tStones = 0,
+    pTStones = 0
+  ) => {
     if (isPremium) gold *= 0.95;
-    setAttemps(attemps + 1);
-    setSpentGold(spentGold + gold);
-    setSpentTStones(spentTStones + tStones);
-    setSpentPTStones(spentPTStones + pTStones);
-    setSpentFusionStones(spentFusionStones + fusionStones);
+    setWastedMaterials({
+      gold: wastedMaterials.gold + gold,
+      fusionStones: wastedMaterials.fusionStones + fusionStones,
+      tStones: wastedMaterials.tStones + tStones,
+      ptStones: wastedMaterials.ptStones + pTStones,
+      tries: wastedMaterials.tries + 1,
+    });
   };
 
   const upgradeItem = (itemType) => {
@@ -113,13 +150,7 @@ const BnsAncientSim = () => {
         setCurrentClass={setCurrentClass}
       />
       <div className="bns__container_displays">
-        <MaterialDisplay
-          gold={spentGold}
-          stones={spentFusionStones}
-          tstones={spentTStones}
-          ptstones={spentPTStones}
-          trys={attemps}
-        />
+        <MaterialDisplay wastedMaterials={wastedMaterials} />
         <MainDisplay
           upgradeItem={upgradeItem}
           currentLevels={currentLevels}
