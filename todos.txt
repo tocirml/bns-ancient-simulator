@@ -10,9 +10,9 @@ Log in
 Buy me a coffee
 
 
-Cookies/Local storage
 
 DONE:
+Cookies/Local storage
 Update Transformations stone costs and apply disccount if premium 5%
 Add logo, menu?
 Enhance Material display 
