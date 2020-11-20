@@ -111,7 +111,7 @@ const UpgradeModal = ({
               if (gearItem.level < 20) upgradeItemHandler(itemType);
             }}
           >
-            {`Upgrade`}
+            {`UPGRADE`}
           </button>
         </div>
       </div>

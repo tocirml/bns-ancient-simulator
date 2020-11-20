@@ -1,3 +1,7 @@
+import Tippy from '@tippy.js/react';
+import 'tippy.js/dist/tippy.css';
+import GearTooltip from './GearTooltip';
+
 const GearItem = ({
   itemType,
   itemLevel,
@@ -13,15 +17,25 @@ const GearItem = ({
         openModal(true);
       }}
     >
-      <img
-        src={
-          itemType === 'weapon'
-            ? `/bnsWeapons/${currentClass}.png`
-            : `/bnsItems/${itemType}.png`
+      <Tippy
+        content={
+          <GearTooltip
+            itemType={itemType}
+            itemLevel={itemLevel}
+            currentClass={currentClass}
+          ></GearTooltip>
         }
-        alt={`${itemType} icon`}
-        className="gear-box-item-img"
-      />
+      >
+        <img
+          src={
+            itemType === 'weapon'
+              ? `/bnsWeapons/${currentClass}.png`
+              : `/bnsItems/${itemType}.png`
+          }
+          alt={`${itemType} icon`}
+          className="gear-box-item-img"
+        />
+      </Tippy>
       <span className="gear-box-item-level">{`+${itemLevel}`}</span>
     </div>
   );
