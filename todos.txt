@@ -1,8 +1,6 @@
 Change region
 Change Pepe
 Tooltip
-Carousel scroll (kagura example)
-Make app not hackeable
 Improve Code
 Google Analytics
 Add redux
@@ -12,6 +10,8 @@ Buy me a coffee
 
 
 DONE:
+Carousel scroll
+Make app not hackeable?????????******* 
 Cookies/Local storage
 Update Transformations stone costs and apply disccount if premium 5%
 Add logo, menu?
