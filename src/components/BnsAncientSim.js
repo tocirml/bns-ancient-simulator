@@ -8,8 +8,13 @@ import materialsData from '../data/wastedMaterials';
 import Switch from '@material-ui/core/Switch';
 import premiumIcon from '../assets/img/premium-icon.png';
 import '../styles/BnsAncientSim.scss';
+import ReactGa from 'react-ga';
 
 const BnsAncientSim = () => {
+  useEffect(() => {
+    ReactGa.initialize('G-GM9MTD5LQ7');
+  }, []);
+
   const [wastedMaterials, setWastedMaterials] = useState(
     localStorage.getItem('materials')
       ? JSON.parse(localStorage.getItem('materials'))
