@@ -12,7 +12,8 @@ import ReactGa from 'react-ga';
 
 const BnsAncientSim = () => {
   useEffect(() => {
-    ReactGa.initialize('G-GM9MTD5LQ7');
+    ReactGa.initialize('UA-183854315-1');
+    ReactGa.pageview(window.location.pathname);
   }, []);
 
   const [wastedMaterials, setWastedMaterials] = useState(
